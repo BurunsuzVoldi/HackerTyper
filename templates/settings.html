@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Settings</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Settings</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">Upload your .txt file:</label>
+            <input type="file" name="file" id="file">
+            <button type="submit">Upload</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
